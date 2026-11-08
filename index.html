@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arenita | Bikinis & Verano</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --azul-noche: #0F172A;
+            --azul-claro: #1E293B;
+            --beige: #F5F2EB;
+            --beige-oscuro: #E2DBD0;
+            --blanco: #FFFFFF;
+            --acento: #38BDF8;
+            --whatsapp: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--beige);
+            color: var(--azul-noche);
+            line-height: 1.6;
+        }
+
+        /* HEADER Y NAVEGACIÓN */
+        header {
+            background-color: var(--azul-noche);
+            color: var(--blanco);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--blanco);
+        }
+
+        .logo span {
+            color: var(--beige-oscuro);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-icons a {
+            color: var(--blanco);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .nav-icons a:hover {
+            color: var(--beige-oscuro);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: var(--blanco);
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--beige);
+        }
+
+        .badge-aviso {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            display: inline-block;
+            max-width: 700px;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2.section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--azul-noche);
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--azul-noche);
+            margin: 0.5rem auto 0;
+        }
+
+        /* TABLA DE TALLES */
+        .talles-box {
+            background-color: var(--blanco);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--beige-oscuro);
+        }
+
+        th {
+            background-color: var(--azul-noche);
+            color: var(--blanco);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: rgba(245, 242, 235, 0.5);
+        }
+
+        /* GRILLA DE PRODUCTOS */
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--azul-noche);
+        }
+
+        .card-price {
+            font-size: 1.2rem;
+            color: var(--azul-claro);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .colores-disponibles {
+            margin-bottom: 1rem;
+        }
+
+        .colores-disponibles p {
+            font-size: 0.85rem;
+            color: #64748B;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        .color-dots {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-wpp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--whatsapp);
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-wpp:hover {
+            background-color: #1EBE5D;
+        }
+
+        /* SECCIÓN INFO / ENVÍOS / PAGOS */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background-color: var(--blanco);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .info-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            color: var(--azul-noche);
+            font-size: 1.2rem;
+        }
+
+        .info-card h3 i {
+            color: var(--azul-claro);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--azul-noche);
+            color: var(--blanco);
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+
+        footer p {
+            color: var(--beige-oscuro);
+            margin-bottom: 1rem;
+        }
+
+        .social-footer {
+            font-size: 1.8rem;
+            color: var(--blanco);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-footer:hover {
+            color: var(--beige-oscuro);
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="logo">ARENITA <span>Bikinis</span></div>
+        <div class="nav-icons">
+            <a href="https://instagram.com/arenitastore_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5493625332007" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </header>
+
+    <!-- SECCIÓN PRINCIPAL (HERO) -->
+    <section class="hero">
+        <h1>Sentí el verano con Arenita</h1>
+        <p>Diseños exclusivos para acompañarte en cada momento bajo el sol.</p>
+        <div class="badge-aviso">
+            <i class="fas fa-info-circle"></i> <strong>Atención:</strong> No contamos con tienda física. Como trabajamos de forma online, es <strong>indispensable que corrobores tus medidas</strong> con nuestra tabla de talles antes de realizar tu pedido.
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- TABLA DE TALLES -->
+        <section id="talles">
+            <h2 class="section-title">Tabla de Talles (Talle 1 al 6)</h2>
+            <div class="talles-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Talle</th>
+                            <th>Contorno de Busto (cm)</th>
+                            <th>Contorno de Cadera (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Talle 1</strong></td>
+                            <td>80 - 85 cm</td>
+                            <td>85 - 90 cm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Talle 2</strong></td>
+                            <td>86 - 90 cm</td>
+                            <td>91 - 96 cm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Talle 3</strong></td>
+                            <td>91 - 95 cm</td>
+                            <td>97 - 102 cm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Talle 4</strong></td>
+                            <td>96 - 100 cm</td>
+                            <td>103 - 108 cm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Talle 5</strong></td>
+                            <td>101 - 106 cm</td>
+                            <td>109 - 115 cm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Talle 6</strong></td>
+                            <td>107 - 114 cm</td>
+                            <td>116 - 124 cm</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO DE PRODUCTOS -->
+        <section id="catalogo">
+            <h2 class="section-title">Nuestras Bikinis</h2>
+            <div class="productos-grid">
+
+                <!-- Producto 1 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&w=600&q=80" alt="Bikini Modelo Sol" class="card-img">
+                    <div class="card-content">
+                        <div>
+                            <div class="card-title">Bikini Modelo Sol</div>
+                            <div class="card-price">$ 24.500</div>
+                            <div class="colores-disponibles">
+                                <p>Colores disponibles:</p>
+                                <div class="color-dots">
+                                    <span class="dot" style="background-color: #0F172A;" title="Azul Noche"></span>
+                                    <span class="dot" style="background-color: #FFFFFF;" title="Blanco"></span>
+                                    <span class="dot" style="background-color: #E2DBD0;" title="Beige"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/5493625332007?text=Hola!%20Quiero%20realizar%20el%20pedido%20de%20la%20Bikini%20Modelo%20Sol." target="_blank" class="btn-wpp">
+                            <i class="fab fa-whatsapp"></i> Realizar Pedido
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1573821663912-569905455b14?auto=format&fit=crop&w=600&q=80" alt="Bikini Modelo Duna" class="card-img">
+                    <div class="card-content">
+                        <div>
+                            <div class="card-title">Bikini Modelo Duna</div>
+                            <div class="card-price">$ 26.000</div>
+                            <div class="colores-disponibles">
+                                <p>Colores disponibles:</p>
+                                <div class="color-dots">
+                                    <span class="dot" style="background-color: #0F172A;" title="Azul Noche"></span>
+                                    <span class="dot" style="background-color: #E2DBD0;" title="Beige"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/5493625332007?text=Hola!%20Quiero%20realizar%20el%20pedido%20de%20la%20Bikini%20Modelo%20Duna." target="_blank" class="btn-wpp">
+                            <i class="fab fa-whatsapp"></i> Realizar Pedido
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1566393028664-d0ae554c9cf2?auto=format&fit=crop&w=600&q=80" alt="Bikini Modelo Olas" class="card-img">
+                    <div class="card-content">
+                        <div>
+                            <div class="card-title">Bikini Modelo Olas</div>
+                            <div class="card-price">$ 25.000</div>
+                            <div class="colores-disponibles">
+                                <p>Colores disponibles:</p>
+                                <div class="color-dots">
+                                    <span class="dot" style="background-color: #FFFFFF;" title="Blanco"></span>
+                                    <span class="dot" style="background-color: #E2DBD0;" title="Beige"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/5493625332007?text=Hola!%20Quiero%20realizar%20el%20pedido%20de%20la%20Bikini%20Modelo%20Olas." target="_blank" class="btn-wpp">
+                            <i class="fab fa-whatsapp"></i> Realizar Pedido
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- INFORMACIÓN DE ENVÍOS Y PAGOS -->
+        <section class="info-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-map-marker-alt">></i> Puntos de Entrega</h3>
+                <p>Realizamos entregas de pedidos en:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Resistencia, Chaco</strong></li>
+                    <li><strong>General José de San Martín, Chaco</strong></li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-wallet"></i> Medios de Pago</h3>
+                <p>Aceptamos <strong>Efectivo</strong> y <strong>Transferencia bancaria</strong>.</p>
+                <p style="margin-top: 10px; font-size: 0.95rem;">Podés señar tu pedido con el <strong>50% del total</strong> y abonar el resto restante al momento de la entrega, o pagar el 100% por adelantado como prefieras.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Seguinos en nuestras redes sociales</p>
+        <a href="https://instagram.com/arenitastore_" target="_blank" class="social-footer"><i class="fab fa-instagram"></i> @arenitastore_</a>
+        <p style="margin-top: 2rem; font-size: 0.85rem; color: #94A3B8;">&copy; 2026 Arenita Bikinis. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
